@@ -5,8 +5,16 @@ const router = express.Router();
 
 // Create item
 router.post("/items", async (req, res) => {
-  const item = await Item.create(req.body);
-  res.json(item);
+  try {
+    const { name, price } = req.body;
+    if (!name || !price) {
+      return res.status(400).json({ error: "Name and price are required" });
+    }
+    const item = await Item.create(req.body);
+    res.json(item);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 // Get items

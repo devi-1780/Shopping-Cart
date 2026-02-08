@@ -6,6 +6,10 @@ const Item = sequelize.define("Item", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  price: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   status: {
     type: DataTypes.STRING,
   },

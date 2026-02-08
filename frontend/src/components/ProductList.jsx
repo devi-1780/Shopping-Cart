@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function ProductList() {
   const [items, setItems] = useState([]);
-
+  console.log(items);
   useEffect(() => {
     fetch("http://localhost:5000/items")
       .then((res) => res.json())
@@ -27,10 +27,8 @@ export default function ProductList() {
       <h2 className="text-xl mb-4">Items</h2>
 
       {items.map((item) => (
-        <div key={item._id} className="border p-3 mb-2">
-          <p>
-            {item.name} - ₹{item.price}
-          </p>
+        <div key={item.id} className="border p-3 mb-2">
+          <p>{item.name}</p>
           <button
             onClick={() => addToCart(item._id)}
             className="bg-green-500 text-white px-3 py-1 mt-2"

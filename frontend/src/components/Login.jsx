@@ -40,6 +40,7 @@ export default function Login() {
         <input
           placeholder="Username"
           className="border p-2 w-full mb-2"
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
@@ -47,6 +48,7 @@ export default function Login() {
           type="password"
           placeholder="Password"
           className="border p-2 w-full mb-4"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
